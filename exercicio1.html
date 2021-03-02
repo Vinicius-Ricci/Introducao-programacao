@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Exercicio 1 </title>
+</head>
+<body>
+
+    <h1>Exercise 1</h1>
+
+    <p>Calcula as principais operações matematicas.</p>
+
+    <form id="form">
+        <input type="text" id="input1" placeholder="Digite um numero"><br>
+        <input type="text" id="input2" placeholder="Digite outro numero"><br>
+        <button>Calcular</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+
+        function onCalculate(event){
+
+            event.preventDefault()
+
+            let first_num = parseFloat(input1.value)
+            let second_num = parseFloat(input2.value)
+
+            if (isNaN(first_num)) {
+                result.innerHTML = 'Por favor digite o primeiro valor!'
+                return
+            }
+
+            if (isNaN(second_num)) {
+                result.innerHTML = 'Por favor digite o segundo valor!'
+                return
+            }
+    
+            let addiction = first_num + second_num
+            let subtraction = first_num - second_num
+            let division = first_num / second_num
+            let multiplication = first_num * second_num
+    
+            result.innerHTML = `
+            
+            <ul>
+                <li>Adição: <b> ${addiction}</b>.</li><br>
+                <li>Subtração: <b> ${subtraction}</b>.</li><br>
+                <li>Divisão: <b> ${division}</b>.</li><br>
+                <li>Multiplicação: <b> ${multiplication}</b>.</li><br>    
+                
+            </ul>
+    
+            `
+        }
+        form.addEventListener('submit', onCalculate)
+    </script>
+</body>
+</html>

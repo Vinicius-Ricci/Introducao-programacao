@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Exercicio 2 </title>
+</head>
+<body>
+
+    <h1>Exercise 2</h1>
+
+    <p>Calcula equações do segundo grau</p>
+
+    <form id="form">
+        <input type="number" id="input1" placeholder="Digite um valor para A"><br>
+        <input type="number" id="input2" placeholder="Digite um valor para B"><br>
+        <input type="number" id="input3" placeholder="Digite um valor para C"><br>
+        <button>Calcular</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+
+        function onCalculate(event){
+
+            event.preventDefault()
+
+            let a = parseFloat(input1.value)
+            let b = parseFloat(input2.value)
+            let c = parseFloat(input3.value)
+
+
+            if (isNaN(a)) {
+                result.innerHTML = 'Por favor digite o valor de A !'
+                return
+            }
+
+            if (isNaN(b)) {
+                result.innerHTML = 'Por favor digite o valor de B !'
+                return
+            }
+
+            if (isNaN(c)) {
+                result.innerHTML = 'Por favor digite o valor de C !'
+                return
+            }
+    
+            let delta = b * b - 4 * a * c
+            let x1 = (-b + Math.sqrt(delta)) / (2 * a)
+            let x2 = (-b - Math.sqrt(delta)) / (2 * a)
+            
+    
+            result.innerHTML = `
+            
+            <ul>
+               
+                <li>O x1 será: <b> ${x1}</b>.</li><br>
+                <li>O x2 será: <b> ${x2}</b>.</li><br>
+                
+            </ul>
+    
+            `
+        }
+        form.addEventListener('submit', onCalculate)
+    </script>
+</body>
+</html>
