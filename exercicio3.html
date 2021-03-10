@@ -39,15 +39,11 @@
 let select = document.querySelector('select')
 let para = document.querySelector('p')
 
-
-
 function setWeather() {
-
 
 event.preventDefault()
 
   var choice = select.value;
-  
   
   if(choice === 'empty'){
     para.textContent = 'Selecione um clima!'  
