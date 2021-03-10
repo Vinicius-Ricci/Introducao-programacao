@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style4.css">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1 class="titleTxt">Digite seus dados: </h1>
+        <form id="form">
+
+            <input type="text" id="input" class="input" placeholder="Digite seu nome"><br>
+
+            <select id="genre" class="select">
+
+                <option value="empty">Selecione seu genero</option>
+                <option value="male">Masculino</option>
+                <option value="female">Feminino</option>
+
+            </select><br>
+    
+            <button class="button">Go!</button>
+    
+        </form>
+    
+    </div>    
+    
+    <div class="result">
+        <p id="answer"></p>
+    </div>
+
+    <script>
+
+        let select = document.querySelector('select')
+        let para = document.querySelector('p')
+
+        function onSubmit(){
+
+            event.preventDefault()
+
+            let name = document.querySelector('input').value
+            let choice = select.value;
+            
+            if(name === ''){
+                para.textContent = 'Por favor, digite seu nome!'
+                document.getElementById('answer').style.color = '#fb8b24';
+            }else if(choice === 'empty'){
+                para.textContent = 'Por favor, selecione um genero!'
+                document.getElementById('answer').style.color = '#fb8b24';        
+            }else if(choice === 'male'){
+                para.textContent = `Seja bem-vindo  ${name}!`
+                document.getElementById('answer').style.color = '#52b69a';
+            }else if(choice === 'female'){
+                para.textContent = `Seja bem-vinda ${name}! `
+                document.getElementById('answer').style.color = '#e0aaff';
+            }else {
+                para.textContent = '';
+            }
+            
+        }
+
+        form.addEventListener('submit', onSubmit)
+
+    </script>
+
+</body>
+</html>
