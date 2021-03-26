@@ -1,0 +1,73 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background-color: #595457;
+}
+
+.txt{
+
+    margin: 0px;
+    position: relative;
+    top: 50px;
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.ContainerForm{
+    
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: #710627;
+    text-align: center;
+    margin: -250px 0 0 -300px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: groove;
+
+    
+    
+}
+
+.input{
+
+    width: 400px;
+    height: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    border-color: transparent;
+    position: relative;
+    top: 90px;
+}
+
+button{
+    width: 200px;
+    height: 40px;
+    border-color: transparent;
+    border-radius: 5px;
+    position: relative;
+    top: 100px;
+    background-color: #000;
+    color: #FFF;
+    font-weight: 500;
+}
+
+.ContainerResult{
+
+    width: 500px;
+    height: 130px;
+    background-color: #710627;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 100px 0 0 -250px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: groove;
+    text-align: center;
+    font-size: 18px;
+}

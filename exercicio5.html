@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style5.css">
+  <title> Exercicio 5</title>
+</head>
+<body>
+
+  <div class="ContainerForm">
+
+    <p class="txt">Exercicio dos Numeros (Sem ideias para titulos)</p>
+
+    <form id="form" novalidate>
+  
+      <input id="input1" type="number" placeholder="Informe o primeiro numero" class="input"><br>
+      <input id="input2" type="number" placeholder="Informe o segundo numero"  class="input"><br>
+  
+      <button>Exibir</button>
+    </form>
+
+  </div>
+
+  <div id="result" class="ContainerResult"></div>
+
+  <script>
+    
+    function onSubmit(event){
+      event.preventDefault()
+
+      let n1 = parseFloat(input1.value)
+      let n2 = parseFloat(input2.value)
+
+      if(isNaN(n1)){
+        result.innerHTML = `<p>Por favor, digite um numero valido para o primeiro campo! </p>`
+        input1.focus()
+        return
+      }
+
+      if(isNaN(n2)){
+        result.innerHTML = `<p>Por favor, digite um numero valido para o segundo campo! </p>`
+        input1.focus()
+        return
+      }
+
+
+      result.innerHTML = ''
+
+      let i = n1
+
+      while( i < n2){
+        result.innerHTML += `${i}, `
+        i++
+      }
+
+      while( i > n2){
+        result.innerHTML += `${i}, `
+        i--
+      }
+        result.innerHTML += n2 
+    }
+
+    form.addEventListener('submit', onSubmit)
+  </script>
+</body>
+</html>
