@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style7.css">
+    <title>Exercicio 7</title>
+</head>
+<body>
+    <div>
+
+        <form id="form">
+    
+            <label> Insira seu nome completo:</label><br>
+            <input type="text" id="input1"><br>
+        
+            <select name="select" id="select">
+
+                <option value="" selected> Selecine o sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                
+            </select><br>
+        
+            <label> Insira sua titulação:</label><br>
+            <input type="text" id="input2"><br>
+
+            <button>Cadastrar</button>
+            
+        </form>
+
+        <button id="showAllTeacher">Exibir professores</button> 
+
+    </div>
+
+    <div id="result" class="women"></div>
+
+    <script>
+
+        let register = []
+
+        function onSubmit (event){
+            event.preventDefault()
+
+            result.className = ''
+            input1.className = ''
+            select.className = ''
+            input2.className = ''
+
+            if(input1.value === ''){
+                result.innerHTML = '<p class="negative">Por favor digite seu nome completo!</p>'
+                input1.focus()
+                input1.className = 'negative'
+                return
+            }
+            
+            if(select.value === ''){
+                result.innerHTML = '<p class="negative">Por favor selecione o sexo</p>'
+                select.focus()
+                select.className = 'negative'
+                return
+            }
+            
+            if(input2.value === ''){
+                result.innerHTML = '<p class="negative">Por favor digite sua titulação</p>'
+                input2.focus()
+                input2.className = 'negative'
+                return
+            }
+
+            let teacher = {
+                name: input1.value,
+                sexo: select.value,
+                titration: input2.value
+            }
+
+            register.push(teacher)
+            result.innerHTML = '<p class="women" style="margin: 20px"> Cadastrado com sucesso!</p>'
+   
+            
+        }
+       
+
+        function showTeacher(event) {
+            event.preventDefault()
+
+            result.innerHTML = ""
+            for(let i of register){
+                result.innerHTML += `<p>Nome: ${i.name}<br> Sexo: ${i.sexo}<br> Titulação: ${i.titration}<br></p>`
+            }
+            
+        }
+        
+        
+        form.addEventListener('submit', onSubmit)
+        showAllTeacher.addEventListener('click', showTeacher)
+
+    </script>
+</body>
+</html>
