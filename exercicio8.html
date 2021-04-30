@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style7.css">
-    <title>Exercicio 7</title>
+    <link rel="stylesheet" href="style8.css">
+    <title>Exercicio 8</title>
 </head>
 <body>
     <div>
-        <h1>Cadastro de Professor</h1>
+        <h1>Cadastro de Alunos</h1>
         <form id="form">
     
             <label> Insira seu nome completo:</label><br>
@@ -18,19 +18,26 @@
             <select name="select" id="select">
 
                 <option value="" selected> Selecine o sexo</option>
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
                 
             </select><br>
         
-            <label> Insira sua titulação:</label><br>
-            <input type="text" id="input2"><br>
+            <select name="select" id="select2">
+
+                <option value="" selected> Selecine o curso</option>
+                <option value="Analise Desenvolvimento de Sistemas">Analise Desenvolvimento de Sistemas</option>
+                <option value="Sistemas para Internet">Sistemas para Internet</option>
+                <option value="Produção Industrial">Produção Industrial</option>
+                <option value="Agronegócio">Agronegócio</option>
+                
+            </select><br>
 
             <button>Cadastrar</button>
             
         </form>
 
-        <button id="showAllTeacher">Exibir professores</button> 
+        <button id="showAllStudents">Exibir alunos cadastrados</button> 
 
     </div>
 
@@ -46,7 +53,8 @@
             result.className = ''
             input1.className = ''
             select.className = ''
-            input2.className = ''
+            select2.className = ''
+            
 
             if(input1.value === ''){
                 result.innerHTML = '<p class="negative">Por favor digite seu nome completo!</p>'
@@ -62,39 +70,39 @@
                 return
             }
             
-            if(input2.value === ''){
-                result.innerHTML = '<p class="negative">Por favor digite sua titulação</p>'
-                input2.focus()
-                input2.className = 'negative'
+            if(select2.value === ''){
+                result.innerHTML = '<p class="negative">Por favor digite seu curso</p>'
+                select2.focus()
+                select2.className = 'negative'
                 return
             }
 
-            let teacher = {
+            let student = {
                 name: input1.value,
                 sexo: select.value,
-                titration: input2.value
+                course: select2.value
             }
 
-            register.push(teacher)
+            register.push(student)
             result.innerHTML = '<p class="women" style="margin: 20px"> Cadastrado com sucesso!</p>'
    
             
         }
        
 
-        function showTeacher(event) {
+        function showStudents(event) {
             event.preventDefault()
 
             result.innerHTML = ""
             for(let i of register){
-                result.innerHTML += `<p>Nome: ${i.name}<br> Sexo: ${i.sexo}<br> Titulação: ${i.titration}<br></p>`
+                result.innerHTML += `<p>Nome: ${i.name}<br> Sexo: ${i.sexo}<br> Curso: ${i.course}<br></p>`
             }
             
         }
         
         
         form.addEventListener('submit', onSubmit)
-        showAllTeacher.addEventListener('click', showTeacher)
+        showAllStudents.addEventListener('click', showStudents)
 
     </script>
 </body>
